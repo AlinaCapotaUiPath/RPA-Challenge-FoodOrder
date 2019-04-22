@@ -1,0 +1,33 @@
+@import 'colors.scss';
+
+.btn {
+    border-radius: 0px;
+}
+
+.btn-success {
+
+    background-color: $successGreen;
+    border-color: $successGreen;
+
+    &:hover,&:active,&:focus,&:active:focus,&:active:focus:hover,&:focus:hover {
+        background-color: lighten($successGreen, 5%) !important;
+        border-color: lighten($successGreen, 5%) !important;
+    }
+}
+
+.btn-primary {
+
+    background-color: $primaryBlue;
+    border-color: $primaryBlue;
+
+    &:hover,&:active,&:focus,&:active:focus,&:active:focus:hover,&:focus:hover {
+        background-color: lighten($primaryBlue, 5%) !important;
+        border-color: lighten($primaryBlue, 5%) !important;
+    }
+}
+
+.btn-start {
+    width: 175px;
+    height: 75px;
+    font-size: 3rem;
+}

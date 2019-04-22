@@ -1,0 +1,369 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    min-width: 750px;
+    font-size-adjust: 0.58;
+    overflow-x:hidden;
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+    -webkit-text-size-adjust:none;
+    margin: 0;
+    background-color: white;
+    color: #101010;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+/* ---------------- MAP ---------------- */
+
+#mapid {
+    height: 280px;
+    width:auto;
+    margin-bottom: 25px;
+}
+
+.leaflet-container {
+  font-size: 12px;
+	}
+
+  .leaflet-popup-content p {
+      margin: 10px 0! important;
+  }
+
+/* ---------------- GENERIC FONT ----------------*/
+form .form-control {
+    border-radius: 0px;
+}
+form .input-group-addon {
+    border-radius: 0px;
+    background-color: white;
+}
+form label {
+    width: 100%;
+}
+
+span.input-group-addon{
+    font-size: 13px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+}
+
+input.form-control, select{
+  font-size: 13px!important;
+}
+
+.input-group-addon {
+    min-width:80px;// if you want width please write here //
+    text-align:left;
+}
+
+.btn {
+      border-radius: 25px;
+      font-size: 1.25rem;
+}
+.btn-success {
+    background-color: #16a085;
+    border-color: #16a085;
+}
+.btn-success:hover, .btn-success:active, .btn-success:focus, .btn-success:active:focus, .btn-success:active:focus:hover, .btn-success:focus:hover {
+    background-color: #19b698 !important;
+    border-color: #19b698 !important;
+}
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus, .btn-primary:active:focus, .btn-primary:active:focus:hover, .btn-primary:focus:hover {
+    background-color: #2980b9 !important;
+    border-color: #2980b9 !important;
+}
+
+/* ---------------- MAIN ----------------*/
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+.main {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.main-container {
+    transition: margin-left .5s;
+    padding: 20px;
+    padding-left: 5px;
+}
+
+ .main .success-container {
+     text-align: center;
+}
+ .main .success-badge {
+     font-size: 5rem;
+     border-radius: 50px;
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     font-family: monospace;
+     background-color: #16a085;
+}
+ .main .success-score {
+     font-size: 2.5rem;
+     font-family: monospace;
+}
+
+.success-details {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    text-align:left!important;
+    font-size: 1.8rem;
+    font-family: monospace;
+}
+
+ * {
+    box-sizing: border-box
+}
+
+.display-none {
+    display: none;
+}
+
+
+.container-fluid {
+    height: 100%;
+}
+
+.paddR {
+  padding-right: 0px;
+}
+
+.paddL {
+  padding-left: 0px;
+}
+
+.paddT {
+  padding-top: 0px;
+}
+
+.paddB {
+  padding-bottm: 0px;
+}
+
+.imgLabel {
+    width: 150px;
+    height: 50px;
+}
+
+#footer {
+clear:both;
+background:#FFFAF0;
+}
+
+/* ---------------- NAVBAR ----------------*/
+
+.navbar {
+     background-color: #0177ce;
+     border: none;
+     min-height: 60px;
+     padding-top: 5px;
+     -webkit-box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.66);
+     -moz-box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.66);
+     box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.66);
+}
+
+ .navbar .container-fluid {
+     padding-left: 5px;
+}
+ .navbar .navbar-header .navbar-brand {
+     display: block;
+     font-size: 2em;
+     color: white;
+}
+ .navbar .navbar-header .navbar-brand .logo {
+     display: inline-block;
+     margin-top: -15px;
+     width: 131.09091px;
+     height: 46.72727px;
+}
+ .navbar .navbar-header .navbar-brand .logo-text {
+     display: inline-block;
+     margin-left: 20px;
+     font-size: 1em;
+     font-weight: 600;
+}
+.navbar .navbar-menu{
+    padding-left:30px;
+}
+ .navbar .navbar-nav li a {
+     background-color: #0177ce;
+     color: white;
+}
+ .navbar .navbar-nav li a:hover {
+     background-color: #0177ce;
+     color: white;
+}
+ .navbar .navbar-nav li.active a {
+     background-color: white;
+     color: #101010;
+     -webkit-box-shadow: 0px 1px 5px 1px rgba(255, 255, 255, 0.66);
+     -moz-box-shadow: 0px 1px 5px 1px rgba(255, 255, 255, 0.66);
+     box-shadow: 0px 1px 5px 1px rgba(255, 255, 255, 0.66);
+}
+ .navbar .navbar-nav li.active a:hover {
+     background-color: white;
+     color: #101010;
+}
+ .navbar .navbar-nav li *:first-child {
+     position: relative;
+     display: block;
+     padding: 15px;
+     color: white;
+}
+
+/* ---------------- SIDENAV / SIDEBAR ----------------*/
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-y: auto; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 1em;
+    margin-left: 50px;
+}
+
+.sidebar {
+   font-family: monospace;
+   height:130vh;
+   background-color: #021b2d;
+   color: white;
+   padding-left: 10px;
+   padding-right: 10px;
+   top: 0;
+   float: left;
+   padding-right: 15px;
+
+   max-width: 350px;
+}
+.sidebar .sidebar-section {
+   padding-top: 15px;
+   padding-right: 15px;
+   padding-bottom: 5px;
+}
+.sidebar .sidebar-section.action-section {
+   padding-top: 0px;
+}
+.sidebar .sidebar-container {
+   padding-left: 25px;
+   background-color: #021b2d;
+}
+.sidebar .instruction-list {
+   padding-left: 0px;
+   padding-top: 0px;
+}
+.sidebar .instruction-list .instruction-list-item {
+   padding-top: 20px;
+   font-size: 1.1em;
+}
+.sidebar .challenge-description {
+   margin-top: 20px;
+}
+
+.close {
+    position: absolute;
+    /* right: 32px;
+    top: 32px; */
+    width: 17px;
+    height: 17px;
+    opacity: 0.3;
+}
+.close:hover {
+    opacity: 1;
+}
+
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 17px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* Small Devices, Tablets */
+/* Extra Small Devices, Phones */
+
+ #sandbox  {
+     padding-top: 60px;
+     padding-left: 15px;
+
+}
+
+@media (max-width: 767px){
+        #mySidenav {
+             width: 0px;
+
+        }
+        .main-container {
+          margin-left:0px;
+        }
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}

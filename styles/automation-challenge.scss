@@ -1,0 +1,119 @@
+#sandbox {
+
+    padding-top:100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+
+    form {
+
+        input:not([type="submit"]) {
+
+            border: 1px solid grey;
+            width: 100%;
+            display: inline-block;
+        }
+
+        input[type="submit"],button[type="submit"] {
+
+            border-radius: 0px;
+            background-image: none;
+            background-color: white;
+            border: 1px solid grey;
+        }
+
+        .inline-input-container {
+
+            display: table;
+            margin-top: 10px;
+
+            .input-group {
+
+                display: table-row;
+
+                label {
+                    display: table-cell;
+                    width: 300px;
+                    vertical-align: middle;
+                    padding-right: 15px;
+                }
+
+                .form-control {
+                    display: table-cell;
+                    width: 300px;
+                }
+            }
+
+        }
+
+        .input-group {
+
+            text-align: right;
+            width: 300px;
+            margin-top: 10px;
+            
+            &.input-group-centered {
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            &.input-group-inline {
+
+                // display: table-row;
+
+                // label {
+                //     display: table-cell;
+                // }
+
+                // .form-control {
+                //     display: table-cell;
+                //     width: 300px;
+                // }
+
+                // label {
+                //     display: block;
+                //     float: left;
+                // }
+
+                // .form-control {
+                //     display: block;
+                //     float: right;
+                // }
+            }
+        }
+
+        .inputs-container {
+            text-align: center;
+        }
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+    #sandbox {
+        padding-top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+    #sandbox {
+        padding-top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+    #sandbox {
+        padding-top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

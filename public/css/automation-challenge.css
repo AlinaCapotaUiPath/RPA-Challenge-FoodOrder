@@ -1,0 +1,57 @@
+#sandbox {
+  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center; }
+  #sandbox form input:not([type="submit"]) {
+    border: 1px solid grey;
+    width: 100%;
+    display: inline-block; }
+  #sandbox form input[type="submit"], #sandbox form button[type="submit"] {
+    border-radius: 0px;
+    background-image: none;
+    background-color: white;
+    border: 1px solid grey; }
+  #sandbox form .inline-input-container {
+    display: table;
+    margin-top: 10px; }
+    #sandbox form .inline-input-container .input-group {
+      display: table-row; }
+      #sandbox form .inline-input-container .input-group label {
+        display: table-cell;
+        width: 300px;
+        vertical-align: middle;
+        padding-right: 15px; }
+      #sandbox form .inline-input-container .input-group .form-control {
+        display: table-cell;
+        width: 300px; }
+  #sandbox form .input-group {
+    text-align: right;
+    width: 300px;
+    margin-top: 10px; }
+    #sandbox form .input-group.input-group-centered {
+      margin-right: auto;
+      margin-left: auto; }
+  #sandbox form .inputs-container {
+    text-align: center; }
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  #sandbox {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px; } }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  #sandbox {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px; } }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  #sandbox {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px; } }

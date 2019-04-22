@@ -12,23 +12,33 @@
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
-
 	<link rel="stylesheet" href="css/automation-challenge.css" />
 	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/flag-icon.min.css" />
 
-    <title>Automation Challenge</title>
+    <title id="title">Automation Challenge</title>
 </head>
 
 <body>
 
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container-fluid">
-
 			<div class="navbar-header">
 				<a class="navbar-brand" href="https://www.uipath.com/" target="_blank">
                     <!--<img class="logo hidden-xs" src="img/logo.png" />-->
-                    <span class="logo-text">Automation Challenge</span>
+                    <span id="navtitle" class="logo-text">Automation Challenge</span>
                 </a>
+			</div>
+
+			<div class="nav navbar-header navbar-brand navbar-right">
+
+				<a href="?lang=en">
+						<span id="en" class="flag-icon flag-icon-us"></span>
+				</a>
+				<span style="color:#FFFFFF">|</span>
+				<a href="?lang=ja">
+						<span id="ja" class="flag-icon flag-icon-jp"></span>
+				</a>
 			</div>
 
 		</div>
@@ -44,7 +54,7 @@
 
 					<section class="sidebar-section">
 
-						<h2 class="sidebar-section-title">Instructions</h2>
+						<h2 id="sidebar-title" class="sidebar-section-title">Instructions</h2>
 
 						<ol class="instruction-list">
 							<li class="instruction-list-item">
@@ -83,22 +93,23 @@
 					</section>-->
 
 					<section class="sidebar-section action-section">
-						<div class="btn-group">
-							<a href="challenge.xlsx" class="btn btn-lg btn-primary visible-lg visible-md">
-								<span class="glyphicon glyphicon-download-alt"></span> Download Excel
-							</a>
-
-							<a href="challenge.xlsx" class="btn btn-primary visible-xs visible-sm">
-								<span class="glyphicon glyphicon-download-alt"></span> Download Excel
-							</a>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<div class="btn-group center-block">
+									<a id="downloadLink" href="challenge.xlsx" class="btn btn-block btn-md btn-primary visible-xs visible-sm visible-lg visible-md">
+										<span style="width: 100%;" class="glyphicon glyphicon-download-alt"></span> Download Excel
+									</a>
+								</div>
+							</div>
 						</div>
-					</section>
-
-					<section class="sidebar-section action-section">
-						<div class="btn-group">
-							<button class="btn btn-lg btn-success btn-start">
-                                    START
-                                </button>
+						<div style="padding-top:20px" class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12">
+								<div class="btn-group center-block">
+									<button id="start" class="btn btn-block btn-md btn-success btn-start">
+																				START
+																		</button>
+								</div>
+							</div>
 						</div>
 					</section>
 
@@ -150,7 +161,7 @@
 
 	</div>
 
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/data.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 

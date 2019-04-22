@@ -1,0 +1,17 @@
+@import 'colors.scss';
+
+form {
+
+    .form-control {
+        border-radius: 0px;
+    }
+
+    .input-group-addon {
+        border-radius: 0px;
+        background-color: $white;
+    }
+
+    label {
+        width: 100%;
+    }
+}

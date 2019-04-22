@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/leaflet.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/leaflet.awesome-markers.css">
+  <link rel="stylesheet" href="/css/shortestpath.css">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <title>Automation Challenge</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <i class="navbar-brand navbar-menu fas fa-bars" onclick="openNav()"> </i>
+        <a class="navbar-brand">
+          <!--<img class="logo hidden-xs" src="img/logo.png" />-->
+          <span class="logo-text">Automation Challenge</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+
+    <div id="mySidenav" class="sidenav">
+      <div class="sidebar">
+        <div class="sidebar-container">
+          <section class="sidebar-section">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <h3 class="sidebar-section-title">Instructions</h3>
+            <ol class="instruction-list">
+              <li class="instruction-list-item">
+                <p>
+                  The goal of this challenge is to create an
+                  <span style="font-weight:bold; color: #1278CB">attended robot</span> that works in tandem with the user.
+                </p>
+              </li>
+
+              <li class="instruction-list-item">
+                <p>
+                  The user needs to match one Demand (marked as a
+                  <span style="font-weight:bold; color: #D33B30">RED</span> point) to the closest Supply (marked as a
+                  <span style="font-weight:bold; color: #74B033">GREEN</span> point) which will populate two tables with data.
+                </p>
+              </li>
+
+              <li class="instruction-list-item">
+                <p>
+                  The robot needs to fill the required data inside the form using the data in the
+                  tables generated at step 2. The form will return a contract value that needs to be inserted back in the 'Contract' text box.
+                </p>
+              </li>
+
+              <li class="instruction-list-item">
+                <p>
+                  Repeat until there are no more
+                  <span style="font-weight:bold; color: #D33B30">RED</span> points on the map.
+                </p>
+              </li>
+
+              <li class="instruction-list-item">
+                <p>
+                  Good luck!
+                </p>
+              </li>
+            </ol>
+          </section>
+          <section class="sidebar-section action-section">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="btn-group center-block">
+                  <button style="margin-bottom:10px;" class="btn btn-block btn-md btn-success btn-start btn-launchgame">Start</button>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="btn-group center-block">
+                  <button onclick="refreshGame()" class="btn btn-block btn-md btn-primary btn-start">Refresh</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- end of sidenav -->
+    <div class="container-fluid main-container">
+      <div class="main">
+        <div class="container-fluid">
+          <div id="sandbox" class="sandbox">
+            <div id="gamecontainer">
+
+              <div id="mapid"></div>
+
+
+              <div class="paddL paddR col-lg-6 col-md-12 col-sm-12">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading clearfix">
+                        <i class="icon-calendar"></i>
+                        <h5 class="panel-title">Origin</h5>
+                      </div>
+                      <div class="panel-body">
+                         <div class="row">
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                               <div class="input-group  input-group-sm">
+                                  <span class="input-group-addon">Cargo Description</span>
+                                  <textarea style="resize: none;" class="form-control input-sm" rows="5" ></textarea>
+                               </div>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Ship Date</span>
+                                  <input type="text" autocomplete="off"  placeholder="dd-mm-yyyy" class="form-control">
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                               <div style="margin-left:0px;" class="paddT panel-body">
+                                  <div class="checkbox">
+                                  <label class="checkbox">
+                                  <input type="checkbox" name="Premit Required"  value="Premit Required" checked=""> Permit Required
+                                  </label>
+                                </div>
+                                <div class="checkbox">
+                                  <label class="checkbox">
+                                  <input type="checkbox" name="Urgent"  value="Urgent"> Urgent
+                                  </label>
+                               </div>
+                             </div>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                               <div style="margin-left:10px;" class="paddT panel-body">
+                                  <label class="radio">
+                                  <input type="radio" name="optionsRadios"  value="Enclosed" checked=""> Enclosed
+                                  </label>
+                                  <label class="radio">
+                                  <input type="radio" name="optionsRadios"  value="Flatbed">Flatbed
+                                  </label>
+                                  <label class="radio">
+                                  <input type="radio" name="optionsRadios"  value="SteepDeck">SteepDeck
+                                  </label>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                   <div class="col-md-6 col-sm-12 col-xs-12">
+                      <div class="panel panel-default">
+                         <div class="panel-heading clearfix">
+                            <i class="icon-calendar"></i>
+                            <h5 class="panel-title">Destination (Demand)</h5>
+                         </div>
+                         <div class="panel-body">
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Name</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Address</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Address-2</span>
+                                  <input type="text" autocomplete="off"  class="form-control">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">City</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="row">
+
+                              <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                 <div style="padding:0px;" class="panel-body">
+                                    <label class="col-md-2 control-label">State</label>
+                                    <select class="form-control input-sm" >
+                                       <option value="AL" selected>AL</option>
+                                       <option value="AK">AK</option>
+                                       <option value="AZ">AZ</option>
+                                       <option value="AR">AR</option>
+                                       <option value="CA">CA</option>
+                                       <option value="CO">CO</option>
+                                       <option value="CT">CT</option>
+                                       <option value="DE">DE</option>
+                                       <option value="DC">DC</option>
+                                       <option value="FL">FL</option>
+                                       <option value="GA">GA</option>
+                                       <option value="HI">HI</option>
+                                       <option value="ID">ID</option>
+                                       <option value="IL">IL</option>
+                                       <option value="IN">IN</option>
+                                       <option value="IA">IA</option>
+                                       <option value="KS">KS</option>
+                                       <option value="KY">KY</option>
+                                       <option value="LA">LA</option>
+                                       <option value="ME">ME</option>
+                                       <option value="MD">MD</option>
+                                       <option value="MA">MA</option>
+                                       <option value="MI">MI</option>
+                                       <option value="MN">MN</option>
+                                       <option value="MS">MS</option>
+                                       <option value="MO">MO</option>
+                                       <option value="MT">MT</option>
+                                       <option value="NE">NE</option>
+                                       <option value="NH">NH</option>
+                                       <option value="NV">NV</option>
+                                       <option value="NJ">NJ</option>
+                                       <option value="NM">NM</option>
+                                       <option value="NY">NY</option>
+                                       <option value="NC">NC</option>
+                                       <option value="ND">ND</option>
+                                       <option value="OH">OH</option>
+                                       <option value="ON">ON</option>
+                                       <option value="OK">OK</option>
+                                       <option value="OR">OR</option>
+                                       <option value="PA">PA</option>
+                                       <option value="QC">QC</option>
+                                       <option value="RI">RI</option>
+                                       <option value="SC">SC</option>
+                                       <option value="SD">SD</option>
+                                       <option value="TN">TN</option>
+                                       <option value="TX">TX</option>
+                                       <option value="UT">UT</option>
+                                       <option value="VT">VT</option>
+                                       <option value="VA">VA</option>
+                                       <option value="WA">WA</option>
+                                       <option value="WI">WI</option>
+                                       <option value="WV">WV</option>
+                                       <option value="WW">WW</option>
+                                       <option value="WY">WY</option>
+                                    </select>
+                                 </div>
+                              </div>
+
+                              <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                 <div style="padding:0px;" class="panel-body">
+                                   <label class="col-md-2 control-label">Zip</label>
+                                   <input type="text" autocomplete="off"   class="form-control input-sm">
+                                 </div>
+                              </div>
+
+
+
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="col-md-6 col-sm-12 col-xs-12">
+                      <div class="panel panel-default">
+                         <div class="panel-heading clearfix">
+                            <i class="icon-calendar"></i>
+                            <h5 class="panel-title">Origin (Supplier)</h5>
+                         </div>
+                         <div class="panel-body">
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Name</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Address</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">Address-2</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="input-group input-group-sm">
+                                  <span class="input-group-addon">City</span>
+                                  <input type="text" autocomplete="off"   class="form-control">
+                               </div>
+                            </div>
+                            <div class="row">
+
+                              <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                 <div style="padding:0px;" class="panel-body">
+                                    <label class="col-md-2 control-label">State</label>
+                                    <select class="form-control input-sm " >
+                                      <option value="AL" selected>AL</option>
+                                      <option value="AK">AK</option>
+                                      <option value="AZ">AZ</option>
+                                      <option value="AR">AR</option>
+                                      <option value="CA">CA</option>
+                                      <option value="CO">CO</option>
+                                      <option value="CT">CT</option>
+                                      <option value="DE">DE</option>
+                                      <option value="DC">DC</option>
+                                      <option value="FL">FL</option>
+                                      <option value="GA">GA</option>
+                                      <option value="HI">HI</option>
+                                      <option value="ID">ID</option>
+                                      <option value="IL">IL</option>
+                                      <option value="IN">IN</option>
+                                      <option value="IA">IA</option>
+                                      <option value="KS">KS</option>
+                                      <option value="KY">KY</option>
+                                      <option value="LA">LA</option>
+                                      <option value="ME">ME</option>
+                                      <option value="MD">MD</option>
+                                      <option value="MA">MA</option>
+                                      <option value="MI">MI</option>
+                                      <option value="MN">MN</option>
+                                      <option value="MS">MS</option>
+                                      <option value="MO">MO</option>
+                                      <option value="MT">MT</option>
+                                      <option value="NE">NE</option>
+                                      <option value="NH">NH</option>
+                                      <option value="NV">NV</option>
+                                      <option value="NJ">NJ</option>
+                                      <option value="NM">NM</option>
+                                      <option value="NY">NY</option>
+                                      <option value="NC">NC</option>
+                                      <option value="ND">ND</option>
+                                      <option value="OH">OH</option>
+                                      <option value="ON">ON</option>
+                                      <option value="OK">OK</option>
+                                      <option value="OR">OR</option>
+                                      <option value="PA">PA</option>
+                                      <option value="QC">QC</option>
+                                      <option value="RI">RI</option>
+                                      <option value="SC">SC</option>
+                                      <option value="SD">SD</option>
+                                      <option value="TN">TN</option>
+                                      <option value="TX">TX</option>
+                                      <option value="UT">UT</option>
+                                      <option value="VT">VT</option>
+                                      <option value="VA">VA</option>
+                                      <option value="WA">WA</option>
+                                      <option value="WI">WI</option>
+                                      <option value="WV">WV</option>
+                                      <option value="WW">WW</option>
+                                      <option value="WY">WY</option>
+                                    </select>
+                                 </div>
+                              </div>
+
+                              <div class="form-group col-md-6 col-sm-6 col-xs-6">
+                                 <div style="padding:0px;" class="panel-body">
+                                   <label class="col-md-2 control-label">Zip</label>
+                                   <input type="text" autocomplete="off"   class="form-control input-sm">
+                                 </div>
+                              </div>
+
+
+
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                 </div>
+              </div>
+
+
+              <div class="paddR col-lg-6 col-md-12 col-sm-12">
+                <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                  <table id="contract_table" class="table">
+                    <thead>
+                      <tr>
+                        <th class="col-md-12 col-lg-12 col-sm-12" style="text-align: left" scope="col">Contract</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="padding-right:0px;padding-left:0px;">
+                          <div class="form-group" style="margin-bottom:0px;">
+                            <input  class="form-control input-sm" type="text">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                              <div class="form-group form-group-md center-block">
+                                <button style="font-size:13px;margin:auto;display:block;" class="btn btn-primary btn-sm submit-form" type="button" disabled>Submit Form</button>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                              <div class="form-group form-group-md center-block">
+                                <button style="font-size:13px;margin:auto;display:block;" class="btn btn-success btn-sm btn-create" type="button"  disabled>Create</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div id="CTRDV" class="form-group col-md-12 col-sm-12 col-xs-12" style="display:none;">
+                              <h4 style="margin:auto; display:table;">Contract Number:
+                                <span id="CTRNR" class="label label-default"></span>
+                              </h4>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6 col-lg-6 col-sm-12">
+                    <table id="demand_table" class="table table-striped">
+                      <colgroup>
+                      <col class="col-xs-6"></col>
+                    </colgroup>
+                      <thead>
+                        <tr>
+                          <!-- <th scope="col">#</th> -->
+                          <th class="col-md-6 col-lg-6 col-sm-6" style="text-align: left" scope="col">Demand</th>
+                          <th class="col-md-6 col-lg-6 col-sm-6" style="text-align: left" scope="col">Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-12">
+                    <table id="supply_table" class="table table-striped">
+                      <colgroup>
+                      <col class="col-xs-6"></col>
+                    </colgroup>
+                      <thead>
+                        <tr>
+                          <!-- <th scope="col">#</th> -->
+                          <th class="col-md-6 col-lg-6 col-sm-6" style="text-align: left" scope="col">Supply</th>
+                          <th class="col-md-6 col-lg-6 col-sm-6" style="text-align: left" scope="col">Details</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="success-container" style="display: none;">
+              <h1 class="success-title">
+                <span class="badge success-badge">CONGRATS!</span>
+              </h1>
+              <strong class="success-score"></strong>
+
+              <p style="padding-left:5px;" class="success-details"></p>
+
+              <div class="row">
+                  <div class="col-md-12 col-lg-12 col-sm-12">
+                    <table style="padding-left:15px;" class="table table-striped">
+
+                      <thead>
+                        <tr>
+                          <!-- <th scope="col">#</th> -->
+                          <th class="col-md-2 col-lg-2 col-sm-2 col-md-offset-1" style="text-align: left" scope="col">Round No.</th>
+                          <th class="col-md-2 col-lg-2 col-sm-2" style="text-align: left" scope="col">Matched points on the map</th>
+                          <th class="col-md-2 col-lg-2 col-sm-2" style="text-align: left" scope="col">No. of correct fields</th>
+                          <th class="col-md-2 col-lg-2 col-sm-2" style="text-align: left" scope="col">Contract number</th>
+                          <th class="col-md-2 col-lg-2 col-sm-2" style="text-align: left" scope="col">Final Result</th>
+                        </tr>
+                      </thead>
+                      <tbody id="score_details">
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+
+  <footer id="footer" class="navbar-fixed-bottom">
+
+
+  </footer>
+
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+  <script type="text/javascript" src="/js/leaflet.awesome-markers.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
+
+
+</body>
+
+</html>

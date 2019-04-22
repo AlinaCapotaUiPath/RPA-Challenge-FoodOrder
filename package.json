@@ -1,0 +1,27 @@
+{
+  "name": "automation-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:prod": "gulp build",
+    "build:dev": "gulp watch",
+    "start:prod": "gulp build && node server.js",
+    "start:dev": "gulp build && concurrently \"gulp watch\" \"node server.js\" --kill-others --names \"gulp,nodejs\" --prefix name"
+  },
+  "author": "UiPath",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-sass": "^2.3.2",
+    "run-sequence": "^1.2.2"
+  }
+}

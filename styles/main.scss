@@ -1,0 +1,41 @@
+@import 'colors.scss';
+@import 'navbar.scss';
+@import 'sidebar.scss';
+@import 'bootstrap.scss';
+@import 'forms.scss';
+
+body {
+    padding-top: 75px;
+    background-color: $white;
+    color: $black;
+}
+
+.main {
+
+    padding-top: 25px;
+
+    .sandbox {
+        position: relative;
+        height: 200px;
+    }
+
+    .success-container {
+        text-align: center;
+    }
+
+    .success-badge {
+        font-size: 5rem;
+        border-radius: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-family: monospace;
+        background-color: $successGreen;
+    }
+
+    .success-score {
+        font-size: 2.5rem;
+        font-family: monospace;
+    }
+}

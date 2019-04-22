@@ -1,0 +1,81 @@
+@import 'colors.scss';
+
+.sidebar {
+
+    height: 110vh;
+    background-color: $darkBlue;
+    color: white;
+    font-family: monospace;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .sidebar-section {
+
+        padding-top: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 5px;
+
+        &.action-section {
+            text-align: center;
+            padding-top: 50px;
+        }
+    }
+
+    .sidebar-container {
+        padding-left: 25px;
+        background-color: $darkBlue;
+    }
+
+    .instruction-list {
+
+        padding-left: 0px;
+        padding-top: 0px;
+
+        .instruction-list-item {
+            padding-top: 20px;
+            font-size: 1.5rem;
+        }
+    }
+
+    .challenge-description {
+        margin-top: 20px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+    .sidebar-container {
+        // width: 435px !important;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+    .sidebar-container {
+        // width: 210px !important;
+        // padding-left: 15px !important;
+    }
+
+    .sidebar-section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+    .sidebar-container {
+        // width: 235px !important;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+    .sidebar-container {
+        // width: 100px !important;
+    }
+}
