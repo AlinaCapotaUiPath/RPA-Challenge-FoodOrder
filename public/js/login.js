@@ -101,4 +101,24 @@ window.dataSteps = {
             "Password": "pass123"
         }
     ]
+};
+
+function logIn() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var grantAccess;
+    for(var i=0; i<window.dataSteps.steps.length; i++) {
+        if(window.dataSteps.steps[i].Email === username && window.dataSteps.steps[i].Password === password) {
+            grantAccess = true;
+            window.location.replace(window.location.origin + "/order"); 
+            break;
+        }
+        else 
+        grantAccess = false;
+    }
+    if(grantAccess === false) {
+        alert("Wrong credentials! Please try again!");
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+    }    
 }

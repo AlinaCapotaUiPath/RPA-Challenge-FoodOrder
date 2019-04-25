@@ -91,7 +91,7 @@ $(function () {
     function renderForm() {
         $inputsContainer.html('');
 
-        var inputs = shuffleArray(['Company Name', 'Password', 'First Name', 'Last Name', 'Address', 'Email', 'Phone Number']);
+        var inputs = shuffleArray(['Company Name', 'Role in Company', 'First Name', 'Last Name', 'Address', 'Email', 'Phone Number', 'Password']);
 
         var useBr = getRandom(2);
 
@@ -186,7 +186,7 @@ $(function () {
       					case 'Company Name':
       						key = language.CompanyName;
       						break;
-      					case 'Password':
+      					case 'Role in Company':
       						key = language.RoleinCompany;
       						break;
       					case 'First Name':
@@ -202,7 +202,9 @@ $(function () {
       						key = language.Email;
       						break;
       					case 'Phone Number':
-      						key = language.PhoneNumber;
+                            key = language.PhoneNumber;
+                        case 'Password':
+                            key = language.Password;
                 }
       				}
 
@@ -211,8 +213,7 @@ $(function () {
             if (key === "Password")
                 $input = $('<input class="form-control" type="password" name="' + hash + '" id="' + hash + '"/>');
             else
-                $input = $('<input class="form-control" type="text" name="' + hash + '" id="' + hash + '"/>');
-            var $inputGroup = $('<div class="js-inputContainer input-group"></div>');
+                $input = $('<input class="form-control" type="text" name="' + hash + '" id="' + hash + '"/>');            var $inputGroup = $('<div class="js-inputContainer input-group"></div>');
 
             if (shouldMakeLabelsInline) {
 

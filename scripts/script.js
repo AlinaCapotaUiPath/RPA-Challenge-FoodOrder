@@ -69,7 +69,7 @@ $(function () {
 
         $inputsContainer.html('');
 
-        var inputs = shuffleArray(['Company Name', 'Password', 'First Name', 'Last Name', 'Address', 'Email', 'Phone Number']);
+        var inputs = shuffleArray(['Company Name', 'Role in Company', 'First Name', 'Last Name', 'Address', 'Email', 'Phone Number', 'Password']);
 		
 
         var useBr = getRandom(2);
@@ -127,7 +127,7 @@ $(function () {
 					case 'Company Name':
 						key = '会社名';
 						break;
-					case 'Password':
+					case 'Role in Company':
 						key = '役職';
 						break;
 					case 'First Name':
@@ -143,7 +143,9 @@ $(function () {
 						key = 'Eメール';
 						break;
 					case 'Phone Number':
-						key = '電話番号';
+                        key = '電話番号';
+                    case 'Password':
+                        key = '暗証';
 				}
 
 			}
