@@ -8,7 +8,7 @@ window.dataSteps = {
             "Address": "98 North Road",
             "Email": "jsmith@itsolutions.co.uk",
             "Phone Number": 40716543298,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Jane",
@@ -18,7 +18,7 @@ window.dataSteps = {
             "Address": "11 Crown Street",
             "Email": "jdorsey@mc.com",
             "Phone Number": 40791345621,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Albert",
@@ -28,7 +28,7 @@ window.dataSteps = {
             "Address": "22 Guild Street",
             "Email": "kipling@waterfront.com",
             "Phone Number": 40735416854,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Michael",
@@ -38,7 +38,7 @@ window.dataSteps = {
             "Address": "17 Farburn Terrace",
             "Email": "mrobertson@mc.com",
             "Phone Number": 40733652145,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Doug",
@@ -48,7 +48,7 @@ window.dataSteps = {
             "Address": "99 Shire Oak Road",
             "Email": "dderrick@timepath.co.uk",
             "Phone Number": 40799885412,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Jessie",
@@ -58,7 +58,7 @@ window.dataSteps = {
             "Address": "27 Cheshire Street",
             "Email": "jmarlowe@aperture.us",
             "Phone Number": 40733154268,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Stan",
@@ -68,7 +68,7 @@ window.dataSteps = {
             "Address": "10 Dam Road",
             "Email": "shamm@sugarwell.org",
             "Phone Number": 40712462257,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Michelle",
@@ -78,7 +78,7 @@ window.dataSteps = {
             "Address": "13 White Rabbit Street",
             "Email": "mnorton@aperture.us",
             "Phone Number": 40731254562,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Stacy",
@@ -88,7 +88,7 @@ window.dataSteps = {
             "Address": "19 Pineapple Boulevard",
             "Email": "sshelby@techdev.com",
             "Phone Number": 40741785214,
-            "Password": "pass123"
+            "Password": "Pass123"
         },
         {
             "First Name": "Lara",
@@ -98,7 +98,7 @@ window.dataSteps = {
             "Address": "87 Orange Street",
             "Email": "lpalmer@timepath.co.uk",
             "Phone Number": 40731653845,
-            "Password": "pass123"
+            "Password": "Pass123"
         }
     ]
 };

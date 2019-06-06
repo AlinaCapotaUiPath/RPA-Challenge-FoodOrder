@@ -84,6 +84,26 @@ $(function () {
 
     var map = {};
 
+    if (!language)
+        language = { Address: "Address",
+        CompanyName: "Company Name",
+        Congrats: "CONGRATS!",
+        DownloadBtnText: "Download Excel",
+        DownloadLink: "http://www.rpachallenge.com/challenge.xlsx",
+        Email: "Email",
+        Finish: "Finished",
+        FirstName: "First Name",
+        Instructions: "The goal of this challenge is to create a workflow that will input data from a spreadsheet into the form fields on the screen.|Beware! The fields will change position on the screen after every submission, throughout 10 rounds, thus the workflow must correctly identify where each spreadsheet record must be typed every time.|The actual countdown of the challenge will begin once you click the Start button; until then, you may submit the form as many times as you wish without receiving penalties.|Good luck!",
+        InstructionsTitle: "Instructions",
+        LastName: "Last Name",
+        Password: "Password",
+        PhoneNumber: "Phone Number",
+        RoleinCompany: "Role in Company",
+        Start: "START",
+        Submit: "Submit",
+        SuccessMessage: "Your success rate is percentage% (score out of totalSteps fields) in EndMilliseconds milliseconds",
+        title: "Automation Challenge" };
+
     // Start button
 
     $('#start').text(language.Start);
@@ -339,6 +359,8 @@ $(function () {
             $('.success-container').show();
 
             $startButton.text(language.Finish);
+
+            setTimeout(function(){ window.location.replace(window.location.origin + "/login"); }, 5000);
 
         } else {
 
