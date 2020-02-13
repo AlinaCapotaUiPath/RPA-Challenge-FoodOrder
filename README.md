@@ -7,4 +7,4 @@ Install:
 Start application:
 `npm start`
 
-Access: http://localhost:3000 
+Access: http://localhost:3000/login
